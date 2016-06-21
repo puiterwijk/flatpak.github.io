@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      
+    </title>
+    <meta content='text/html; charset=UTF8' http-equiv='content-type'>
+    <meta content='' name='description'>
+    <meta content='bundle,application,runtime,flatpak,xdg-app' name='keywords'>
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+    <link href='img/favicon.png' rel='icon' type='image/png'>
+    <link href='../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='img/favicon57.png' rel='apple-touch-icon' sizes='57x57'>
+    <link href='img/favicon152.png' rel='apple-touch-icon' sizes='152x152'>
+    <link href="../stylesheets/fonts-6c582ae6.css" rel="stylesheet" />
+    <link href="../stylesheets/site-1a082d8f.css" rel="stylesheet" />
+    <link href="../stylesheets/animate-0a10c6dd.css" rel="stylesheet" />
+    <!-- = stylesheet_link_tag "http://overpass-30e2.kxcdn.com/overpass.css" -->
+  </head>
+  <body id='page-top'>
+    <nav class='navbar navbar-default navbar-fixed-top' id='mainNav'>
+      <div class='container-fluid'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class='navbar-header'>
+          <button class='navbar-toggle collapsed' data-target='#bs-example-navbar-collapse-1' data-toggle='collapse' type='button'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a href="../" class="navbar-brand page-scroll">Flatpak</a>
+        </div>
+        <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+          <ul class='nav navbar-nav navbar-right'>
+            <li>
+              <a href='/index.html#about'>About</a>
+            </li>
+            <li>
+              <a href="../getting.html" class="page-scroll">Getting Flatpak</a>
+            </li>
+            <li>
+              <a href='/index.html#users'>Run</a>
+            </li>
+            <li>
+              <a href='/index.html#developers'>Build</a>
+            </li>
+            <li>
+              <a href='/index.html#get-involved'>Get&nbsp;Involved</a>
+            </li>
+            <li>
+              <a href="../faq.html" class="page-scroll">FAQ</a>
+            </li>
+          </ul>
+          <!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </body>
+  <section class=""><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1">
+  <h1>Announcing Flatpak – Next Generation Linux Applications</h1>
+  
+  <p>Stockholm, Sweden – 21<sup>st</sup> June 2016 – The development team behind Flatpak is excited to announce the general availablity of their new framework for desktop applications on Linux. Previously named xdg-app, <a href="http://flatpak.org/getting.html">Flatpak is available on a range of major Linux distributions</a>.</p>
+  
+  <h2>Build once, run anywhere</h2>
+  
+  <p><img alt="" src="../img/logo2-ed95ba5a.svg" class="fright"></p>
+  
+  <p>The Linux desktop has long been held back by platform fragmentation. This has been a burden on developers, and creates a high barrier to entry for third party application developers. Flatpak aims to change all that. From the very start its primary goal has been to allow the same application to run across a myriad of Linux distributions and operating systems. In doing so, it greatly increases the number of users that application developers can easily reach.</p>
+  
+  <p>Speaking about the goals behind Flatpak, Alexander Larsson, its lead developer, said: “Application developers on Linux have always been prevented from having a direct relationship with their users. With Flatpak we&#39;re aiming to change that, so developers know exactly what their users are getting. With this launch we are making that goal a reality.”</p>
+  
+  <p>Flatpak has been available for a range of Linux distributions for several weeks. It allows application developers to build against a series of stable platforms (known as runtimes), as well as to bundle libraries directly within their applications. Flatpak is also standards compliant, offering support for the <a href="https://www.opencontainers.org/">Open Container Initiative</a> specification.</p>
+  
+  <p>A growing range of applications are already available as Flatpaks, including LibreOffice, the GIMP, InkScape, MyPaint, Darktable, and a large number of stock GNOME applications. <a href="../apps.html">flatpak.org provides instructions on how to easily try these yourself</a>. Linux desktops are also adopting Flatpak. A fully functional GNOME runtime has been available since March: this allows application developers to build and distribute Flatpaks using the GNOME development stack. Work on a similar runtime for KDE is proceeding.</p>
+  
+  <p>Not only does Flatpak provide cross-distribution installation, but it also allows forward compatibility. Michael Meeks, Director of <a href="https://www.documentfoundation.org/">The Document Foundation</a>, said: “Until now, building a LibreOffice that works for every Linux user has involved some horrible compromises caused by the need to build our binaries on an ancient Linux version to get good forward compatibility. Flatpak will enable us (as a Linux ISV) to distribute a better LibreOffice, with up-to-date dependencies and a platform that can run on many systems. I&#39;m excited to see that happen.”</p>
+  
+  <h2>Security first</h2>
+  
+  <p>Another area where the Linux desktop has been weak is security: it has never had a viable model for isolating applications, or for gatekeeping access to user data. This is another area where Flatpak aims to upset the status quo. To this end, it has been built from the ground up with security in mind.</p>
+  
+  <p>Flatpak apps are sandboxed. From within the sandbox, the only things the app can “see” are itself and a limited set of libraries and operating system interfaces. This effectively isolates apps from each other as well as from the host system and makes it much harder for applications to steal user data or exploit one another.</p>
+  
+  <p>Initial Flatpak releases have concentrated on application building, distribution and installation, and while the foundations of sandboxing are in place, there are still missing pieces. “The next major Flatpak release will be all about sandboxing”, says Larsson. “Application authors will see a much more complete set of interfaces for interacting with the operating system from within a sandbox.”</p>
+  
+  <p>Another major part of this work is the widescale move towards the Wayland display server on Linux. X11 is inherently insecure, which makes it impossible to sandbox applications that are using it. In that sense, the growing maturity of Wayland complements Flatpak&#39;s emergence, and paves the way for much more complete security model for Linux distributions.</p>
+  
+  <h2>Background to Flatpak</h2>
+  
+  <p><a href="../img/CC-BY-SA-4.0-Garrett-LeSage-a74e6be7.jpg"><img src="../img/CC-BY-SA-4.0-Garrett-LeSage-sm-e359302b.jpg" title="Alexander Larsson. Photo by Garrett LeSage" alt="Alexander Larsson. Photo by Garrett LeSage" /></a></p>
+  
+  <p>Flatpak is the brainchild of Alexander Larsson, Principal Software Engineer at Red Hat. Larsson has been working in the Linux desktop space for 18 years. He was the principal author of GVfs (GNOME&#39;s Virtual Filesystem) and has done critical work on Docker, the SPICE protocol, the Gecko rendering engine, GLib and GTK+. He has considerable experience in the area of application bundling.</p>
+  
+  <p>Flatpak builds on several cutting edge technologies. Under the hood, it makes significant use of <a href="https://ostree.readthedocs.org">OSTree</a>, which can be described as “Git for large binaries”. This provides much of the functionality for hosting software repositories. It also makes Flatpak extremely efficient: applications and libraries that are installed with Flatpak are de-duplicated, saving disk space; “static deltas” reduce the size of downloads for software updates.</p>
+  
+  <p>For sandboxing, Flatpak makes use of the <a href="https://github.com/projectatomic/bubblewrap">Bubblewrap</a> utility, as well as several Linux kernel features (such as cgroups and namespaces), which helps to make it portable across distributions.</p>
+  
+  <h2>Rapid community growth and adoption</h2>
+  
+  <p>It is well known that Fedora is making plans around Flatpak. Commenting on Flatpak, Christian F.K. Schaller (Senior Manager at Red Hat and member of the Fedora Workstation Working Group) stated: “The Fedora Workstation team are very excited about Flatpak and the prospects it brings for making the Linux desktop easier to develop for. We plan to continue supporting this effort going forward and help advocate it to a wider audience.&quot;</p>
+  
+  <p>There is also interest from other parties. One early adopter of Flatpak is <a href="https://endlessm.com/">Endless Computers</a>. Speaking about the launch of Flatpak, Jonathan Blandford (VP of Software Engineering at Endless) said: “The Flatpak launch represents a major milestone in providing a unified context for Linux developers. At Endless, we’re proud to be a part of this movement and have fully embraced Flatpak by readily converting all of our applications for our upcoming release and continuing to build new Flatpak apps. We encourage others to do so as well in what we hope to be a revolution among Linux app creation and adoption.”</p>
+  
+  <p><img src="../img/endless-apps-bca2d901.png" title="Endless Computers and its App ecosystem" alt="Endless Computers and its App ecosystem" /></p>
+  
+  <p>Other distributions are showing interest, as well as other Free Software companies. Simon McVittie is Senior Software Engineer at Collabora and a Debian developer, and is himself looking to Flatpak: “Bringing Flatpak technology into Debian enables us to run applications in a predictable environment with their most suitable library stack, without compromising the base OS&#39;s stability and flexibility. Flatpak also retains the ability to deploy security updates, making it a significant enhancement for the many Debian-based desktop and embedded distributions, both in the community and in commercial products.”</p>
+  
+  <p>One reason for the increasing interest in Flatpak is due to its adaptability and the fact that it is a genuinely upstream project. It can be used and adapted as part of downstream and bespoke solutions, is hosted on Freedesktop.org and Github, and is licensed with the LGPL, with no copyright assignment or contributor license agreement required.</p>
+  
+  <p>Larsson is obviously pleased by the momentum behind Flatpak. “It&#39;s exciting to see the growing interest in what we are doing, as developers realise the possibilities of the technology,” he said.</p>
+  
+  <p>More information about Flatpak can be found on <a href="http://flatpak.org/">flatpak.org</a>.</p>
+  </div></div></div></section>
+  <section class='bg-black' id='footer'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-3 col-lg-offset-1'>
+          <a class='navbar-brand page-scroll' href='#page-top'>
+            <img src="../img/logo-e370cea0.svg" title="Flatpak" class="full" alt="Logo" />
+          </a>
+        </div>
+        <ul class='col-lg-7'>
+          <li class='toplevel'>
+            <a href="../">Home</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#about'>About</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="../getting.html" class="page-scroll">Getting Flatpak</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#users'>Run</a>
+            <ul>
+              <li>
+                <a href="../apps.html" class="page-scroll">Apps</a>
+              </li>
+              <li>
+                <a href="../runtimes.html" class="page-scroll">Runtimes</a>
+              </li>
+            </ul>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#developers'>Build</a>
+            <ul>
+              <li>
+                <a href="../developer.html" class="page-scroll">Getting Started with Flatpack</a>
+              </li>
+              <li>
+                <a href="../bundling-a-java-app.html" class="page-scroll">Bundling a Java Application with Flatpak</a>
+              </li>
+            </ul>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#get-involved'>Get&nbsp;Involved</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="/press" class="page-scroll">Press</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="../faq.html" class="page-scroll">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <script src="../javascripts/jquery-1797d73e.js"></script>
+  <script src="../javascripts/jquery.easing.min-603599b4.js"></script>
+  <script src="../javascripts/jquery.toc.min-265bae56.js"></script>
+  <script src="../javascripts/bootstrap-8cf4186c.js"></script>
+  <script src="../javascripts/all-3265ae7f.js"></script>
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-68811788-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>

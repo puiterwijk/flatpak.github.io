@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Flatpak Apps
+    </title>
+    <meta content='text/html; charset=UTF8' http-equiv='content-type'>
+    <meta content='Applications distributed as Flatpaks, ready to download.' name='description'>
+    <meta content='bundle,application,runtime,flatpak,xdg-app' name='keywords'>
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+    <link href='img/favicon-1713a929.png' rel='icon' type='image/png'>
+    <link href='favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='img/favicon57-0c07caa1.png' rel='apple-touch-icon' sizes='57x57'>
+    <link href='img/favicon152-b877307a.png' rel='apple-touch-icon' sizes='152x152'>
+    <link href="stylesheets/fonts-6c582ae6.css" rel="stylesheet" />
+    <link href="stylesheets/site-1a082d8f.css" rel="stylesheet" />
+    <link href="stylesheets/animate-0a10c6dd.css" rel="stylesheet" />
+    <!-- = stylesheet_link_tag "http://overpass-30e2.kxcdn.com/overpass.css" -->
+  </head>
+  <body id='page-top'>
+    <nav class='navbar navbar-default navbar-fixed-top' id='mainNav'>
+      <div class='container-fluid'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class='navbar-header'>
+          <button class='navbar-toggle collapsed' data-target='#bs-example-navbar-collapse-1' data-toggle='collapse' type='button'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a href="./" class="navbar-brand page-scroll">Flatpak</a>
+        </div>
+        <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+          <ul class='nav navbar-nav navbar-right'>
+            <li>
+              <a href='/index.html#about'>About</a>
+            </li>
+            <li>
+              <a href="getting.html" class="page-scroll">Getting Flatpak</a>
+            </li>
+            <li>
+              <a href='/index.html#users'>Run</a>
+            </li>
+            <li>
+              <a href='/index.html#developers'>Build</a>
+            </li>
+            <li>
+              <a href='/index.html#get-involved'>Get&nbsp;Involved</a>
+            </li>
+            <li>
+              <a href="faq.html" class="page-scroll">FAQ</a>
+            </li>
+          </ul>
+          <!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </body>
+  <section class=""><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1">
+  <h1>Apps</h1>
+  
+  <h2>Nightly graphics apps</h2>
+  
+  <p>The nightly-graphics repository contains daily development builds of common graphics applications, including:</p>
+  
+  <ul>
+  <li><a href="http://www.darktable.org/">Darktable</a></li>
+  <li><a href="http://gimp.org">GIMP</a></li>
+  <li>GIMP GTK+3 branch</li>
+  <li><a href="http://inkscape.org">Inkscape</a></li>
+  <li><a href="http://mypaint.org">MyPaint</a></li>
+  </ul>
+  
+  <p>These applications require the org.gnome.Platform 3.20 runtime. See the <a href="runtimes.html">runtimes page</a> for details on how to install this.</p>
+  
+  <p>To add the nightly-graphics repository, run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>wget http://209.132.179.2/keys/nightly.gpg&#x000A;<span class="unselectable">$ </span>flatpak remote-add --gpg-import=nightly.gpg nightly-graphics http://209.132.179.2/repo/</pre>
+  
+  <p>List the apps in the repository:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-ls nightly-graphics --app</pre>
+  
+  <p>The graphics apps use &quot;master&quot; as their version name, so to install one, run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install nightly-graphics org.gimp.GimpDevel master</pre>
+  
+  <h2>LibreOffice</h2>
+  
+  <p>LibreOffice is available as a Flatpak. See their <a href="http://www.libreoffice.org/download/flatpak/">Flatpak page</a> for details.
+  A growing number of apps are available as Flatpaks. This includes LibreOffice, a collection of nightly graphics application builds like GIMP, Inkscape and MyPaint, and numerous stable and nightly GNOME applications.</p>
+  
+  <h2>Stable GNOME applications</h2>
+  
+  <p>A collection of GNOME applications are available from the latest upstream release (version 3.20). This includes:</p>
+  
+  <ul>
+  <li><a href="https://wiki.gnome.org/Apps/Builder">Builder</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Calculator">Calculator</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Calendar">Calendar</a></li>
+  <li>Characters</li>
+  <li><a href="https://wiki.gnome.org/Apps/Clocks">Clocks</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Dictionary">Dictionary</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Evince">Evince</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/EyeOfGnome">Eye of Gnome</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Gedit">Gedit</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Iagno">Iagno</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Maps">Maps</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Bijiben">Notes</a> (Bijiben)</li>
+  <li><a href="https://wiki.gnome.org/Apps/Polari">Polari</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Todo">Todo</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Weather">Weather</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Epiphany">Web</a> (Epiphany)</li>
+  </ul>
+  
+  <p>These can be found in the gnome-apps repository, which can be added with:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>wget https://sdk.gnome.org/keys/gnome-sdk.gpg&#x000A;<span class="unselectable">$ </span>flatpak remote-add --gpg-import=gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/</pre>
+  
+  <p>You can then list available apps using:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-ls gnome-apps --app</pre>
+  
+  <p>Applications in this repository require the 3.20 version of the org.gnome.Platform runtime. See the <a href="runtimes.html">runtimes page</a> for details on how to install it.</p>
+  
+  <p>Stable GNOME applications also use the version name of &quot;stable&quot;. To install one, you therefore run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install gnome-apps org.gnome.gedit stable</pre>
+  
+  <h2>Nightly GNOME applications</h2>
+  
+  <p>The GNOME nightly apps repository includes a collection of GNOME applications that are built daily from Git master. It includes:</p>
+  
+  <ul>
+  <li><a href="https://wiki.gnome.org/Apps/Builder">Builder</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Calculator">Calculator</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Calendar">Calendar</a></li>
+  <li>Characters</li>
+  <li><a href="https://wiki.gnome.org/Apps/Clocks">Clocks</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Dictionary">Dictionary</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Documents">Documents</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Evince">Evince</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/EyeOfGnome">Eye of Gnome</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Games">Games</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Gedit">Gedit</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Gitg">Gitg</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Glade">Glade</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Iagno">Iagno</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Maps">Maps</a></li>
+  <li>News</li>
+  <li><a href="https://wiki.gnome.org/Apps/Bijiben">Notes</a> (Bijiben)</li>
+  <li><a href="https://wiki.gnome.org/Apps/Polari">Polari</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Todo">Todo</a></li>
+  <li><a href="https://wiki.gnome.org/Apps/Totem">Videos</a> (Totem)</li>
+  <li><a href="https://wiki.gnome.org/Apps/Epiphany">Web</a> (Epiphany)</li>
+  <li><a href="https://wiki.gnome.org/Apps/Weather">Weather</a></li>
+  </ul>
+  
+  <p>To add the GNOME nightly apps repository, run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>wget https://sdk.gnome.org/nightly/keys/nightly.gpg&#x000A;<span class="unselectable">$ </span>flatpak remote-add --gpg-import=nightly.gpg gnome-nightly-apps https://sdk.gnome.org/nightly/repo-apps/</pre>
+  
+  <p>And to list the apps in the repository:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-ls gnome-nightly-apps --app</pre>
+  
+  <p>These applications require the nightly version of the org.gnome.Platform runtime. See the <a href="runtimes.html">runtimes page</a> for details on how to install this.</p>
+  
+  <p>All the apps in the repository use the version name of &quot;master&quot;. For example, to install gedit run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install gnome-nightly-apps org.gnome.gedit master</pre>
+  
+  <p>And to update it:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak update org.gnome.gedit master</pre>
+  </div></div></div></section>
+  <section class='bg-black' id='footer'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-3 col-lg-offset-1'>
+          <a class='navbar-brand page-scroll' href='#page-top'>
+            <img src="img/logo-e370cea0.svg" title="Flatpak" class="full" alt="Logo" />
+          </a>
+        </div>
+        <ul class='col-lg-7'>
+          <li class='toplevel'>
+            <a href="./">Home</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#about'>About</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="getting.html" class="page-scroll">Getting Flatpak</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#users'>Run</a>
+            <ul>
+              <li>
+                <a href="apps.html" class="page-scroll">Apps</a>
+              </li>
+              <li>
+                <a href="runtimes.html" class="page-scroll">Runtimes</a>
+              </li>
+            </ul>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#developers'>Build</a>
+            <ul>
+              <li>
+                <a href="developer.html" class="page-scroll">Getting Started with Flatpack</a>
+              </li>
+              <li>
+                <a href="bundling-a-java-app.html" class="page-scroll">Bundling a Java Application with Flatpak</a>
+              </li>
+            </ul>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a class='page-scroll' href='/index.html#get-involved'>Get&nbsp;Involved</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="/press" class="page-scroll">Press</a>
+          </li>
+          <li class='toplevel'>
+            <!-- id links on index page -->
+            <a href="faq.html" class="page-scroll">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <script src="javascripts/jquery-1797d73e.js"></script>
+  <script src="javascripts/jquery.easing.min-603599b4.js"></script>
+  <script src="javascripts/jquery.toc.min-265bae56.js"></script>
+  <script src="javascripts/bootstrap-8cf4186c.js"></script>
+  <script src="javascripts/all-3265ae7f.js"></script>
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-68811788-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>
