@@ -72,7 +72,7 @@
   
   <p>For Debian Jessie, there is a custom apt repository available. To install, run the following as root:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>wget -O - https://sdk.gnome.org/apt/debian/conf/alexl.gpg.key|apt-key add -&#x000A;<span class="unselectable">$ </span>echo "deb [arch=amd64] https://sdk.gnome.org/apt/debian/ jessie main" > /etc/apt/sources.list.d/flatpak.list&#x000A;<span class="unselectable">$ </span>apt update&#x000A;<span class="unselectable">$ </span>apt install flatpak</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>wget -O - https://sdk.gnome.org/apt/debian/conf/alexl.gpg.key|apt-key add -&#x000A;<span class="unselectable">$ </span>echo "deb [arch=amd64] https://sdk.gnome.org/apt/debian/ jessie main" > /etc/apt/sources.list.d/flatpak.list&#x000A;<span class="unselectable">$ </span>apt install apt-transport-https&#x000A;<span class="unselectable">$ </span>apt update&#x000A;<span class="unselectable">$ </span>apt install flatpak</pre>
   
   <h3>Fedora</h3>
   
@@ -80,9 +80,21 @@
   
   <pre>&#x000A;<span class="unselectable">$ </span>sudo dnf install flatpak</pre>
   
+  <h3>Gentoo</h3>
+  
+  <p>An unofficial overlay is available <a href="https://github.com/fosero/flatpak-overlay">here</a></p>
+  
   <h3>Mageia</h3>
   
-  <p>A <code>flatpak</code> package is available in Cauldron.</p>
+  <p>A <code>flatpak</code> package is available in Cauldron. To install, run the following as root:</p>
+  
+  <p>If using <code>DNF</code></p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>dnf install flatpak</pre>
+  
+  <p>If using <code>urpmi</code></p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>urpmi flatpak</pre>
   
   <h3>Ubuntu</h3>
   
@@ -127,7 +139,7 @@
             <a class='page-scroll' href='/index.html#developers'>Build</a>
             <ul>
               <li>
-                <a href="developer.html" class="page-scroll">Getting Started with Flatpack</a>
+                <a href="developer.html" class="page-scroll">Getting Started with Flatpak</a>
               </li>
               <li>
                 <a href="bundling-a-java-app.html" class="page-scroll">Bundling a Java Application with Flatpak</a>
