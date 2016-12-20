@@ -861,7 +861,7 @@
   
   <p>A typical metadata file looks like this:</p>
   
-  <pre><code>[Application]&#x000A;name=org.gnome.gedit&#x000A;runtime=org.gnome.Platform/x86_64/3.20&#x000A;sdk=org.gnome.Sdk/x86_64/3.20&#x000A;command=gedit&#x000A;&#x000A;[Context]&#x000A;shared=ipc;network;&#x000A;sockets=x11;wayland;pulseaudio;&#x000A;devices=dri;&#x000A;filesystems=host;&#x000A;&#x000A;[Environment]&#x000A;GEDIT_FOO=bar&#x000A;&#x000A;[Session Bus Policy]&#x000A;org.extra.name=talk&#x000A;org.other.name=own&#x000A;</code></pre>
+  <pre><code>[Application]&#x000A;name=org.gnome.gedit&#x000A;runtime=org.gnome.Platform/x86_64/3.22&#x000A;sdk=org.gnome.Sdk/x86_64/3.22&#x000A;command=gedit&#x000A;&#x000A;[Context]&#x000A;shared=ipc;network;&#x000A;sockets=x11;wayland;pulseaudio;&#x000A;devices=dri;&#x000A;filesystems=host;&#x000A;&#x000A;[Environment]&#x000A;GEDIT_FOO=bar&#x000A;&#x000A;[Session Bus Policy]&#x000A;org.extra.name=talk&#x000A;org.other.name=own&#x000A;</code></pre>
   
   <p>This specifies the name of the application, the runtime it requires, the SDK that it is built against and the command used to run it. It also specifies file and device access, sets certain environment variables (inside the sandbox, of course), and how to connect to the session bus.</p>
   
@@ -884,7 +884,7 @@
   
   <pre><code>[Extension org.freedesktop.Platform.GStreamer]&#x000A;version=1.4&#x000A;directory=lib/extensions/gstreamer-1.0&#x000A;subdirectories=true&#x000A;</code></pre>
   
-  <p>The subdirectories=true key instructs flatpak to mount e.g. a org.freedesktop.Platform.GStreamer.mp3 runtime on /usr/lib/extensions/gstreamer-1.0/mp3 in the sandbox. The gstramer libraries in the org.freedesktop.Platform runtime have been configured to look in this place for plugins.</p>
+  <p>The subdirectories=true key instructs flatpak to mount e.g. a org.freedesktop.Platform.GStreamer.mp3 runtime on /usr/lib/extensions/gstreamer-1.0/mp3 in the sandbox. The gstreamer libraries in the org.freedesktop.Platform runtime have been configured to look in this place for plugins.</p>
   
   <h2>Building Simple Apps</h2>
   
@@ -892,17 +892,17 @@
   
   <h3>Installing an SDK</h3>
   
-  <p>As described above, an SDK is a special type of runtime that is used to build applcations. Typically, an SDK is paired with a runtime that will be used by the app at runtime. For example the GNOME 3.20 SDK is used to build applications that use the GNOME 3.20 runtime. The rest of this guide uses this SDK and runtime for its examples. To do this, download the repository GPG key and then add the repository that contains the runtime and SDK:</p>
+  <p>As described above, an SDK is a special type of runtime that is used to build applcations. Typically, an SDK is paired with a runtime that will be used by the app at runtime. For example the GNOME 3.22 SDK is used to build applications that use the GNOME 3.22 runtime. The rest of this guide uses this SDK and runtime for its examples. To do this, download the repository GPG key and then add the repository that contains the runtime and SDK:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>wget https://sdk.gnome.org/keys/gnome-sdk.gpg&#x000A;<span class="unselectable">$ </span>flatpak remote-add --gpg-import=gnome-sdk.gpg gnome https://sdk.gnome.org/repo/</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-add --from gnome https://sdk.gnome.org/gnome.flatpakrepo</pre>
   
   <p>You can now download and install the runtime and SDK. (If you have already completed the tutorial on the Flatpak homepage, you will already have the runtime installed)</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install gnome org.gnome.Platform 3.20&#x000A;<span class="unselectable">$ </span>flatpak install gnome org.gnome.Sdk 3.20</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install gnome org.gnome.Platform//3.22 org.gnome.Sdk//3.22</pre>
   
   <p>This might be a good time to try installing an application and having a look &#39;under the hood&#39;. To do this, you need to add a repository that contains applications. In this case we are going to use the gnome-apps repository and install gedit:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-add --gpg-import=gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/&#x000A;<span class="unselectable">$ </span>flatpak install gnome-apps org.gnome.gedit stable</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-add --from gnome-apps https://sdk.gnome.org/gnome-apps.flatpakrepo&#x000A;<span class="unselectable">$ </span>flatpak install gnome-apps org.gnome.gedit</pre>
   
   <p>You can now use the following command to get a shell in the &#39;devel sandbox&#39;:</p>
   
@@ -924,9 +924,9 @@
   <li><code>BRANCH</code> is typically the version of the SDK and runtime that will be used</li>
   </ul>
   
-  <p>For example, to build the GNOME Dictionary application using the GNOME 3.20 SDK, the command would look like:</p>
+  <p>For example, to build the GNOME Dictionary application using the GNOME 3.22 SDK, the command would look like:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>flatpak build-init dictionary org.gnome.Dictionary org.gnome.Sdk org.gnome.Platform 3.20</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak build-init dictionary org.gnome.Dictionary org.gnome.Sdk org.gnome.Platform 3.22</pre>
   
   <p>You can try this command now. In the next step we will build an application inside the resulting dictionary directory.</p>
   
@@ -940,7 +940,7 @@
   
   <p>The build command allows existing applications that have been made using the traditional configure, make, make install routine to be built inside a flatpak. You can try this using GNOME Dictionary. First, download the source files, extract them and switch to the resulting directory:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>wget https://download.gnome.org/sources/gnome-dictionary/3.20/gnome-dictionary-3.20.0.tar.xz&#x000A;<span class="unselectable">$ </span>tar xvf gnome-dictionary-3.20.0.tar.xz&#x000A;<span class="unselectable">$ </span>cd gnome-dictionary-3.20.0/</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>wget https://download.gnome.org/sources/gnome-dictionary/3.22/gnome-dictionary-3.22.0.tar.xz&#x000A;<span class="unselectable">$ </span>tar xvf gnome-dictionary-3.22.0.tar.xz&#x000A;<span class="unselectable">$ </span>cd gnome-dictionary-3.22.0/</pre>
   
   <p>Then you can use the build command to build and install the source inside the dictionary directory that was previously made:</p>
   
@@ -972,7 +972,7 @@
   
   <p>The GNOME Dictionary manifest is short, because the only module is the application itself:</p>
   
-  <pre><code>{&#x000A;  &quot;app-id&quot;: &quot;org.gnome.Dictionary&quot;,&#x000A;  &quot;runtime&quot;: &quot;org.gnome.Platform&quot;,&#x000A;  &quot;runtime-version&quot;: &quot;3.20&quot;,&#x000A;  &quot;sdk&quot;: &quot;org.gnome.Sdk&quot;,&#x000A;  &quot;command&quot;: &quot;gnome-dictionary&quot;,&#x000A;  &quot;finish-args&quot;: [ &#x000A;     &quot;--socket=x11&quot;, &#x000A;     &quot;--share=network&quot;  &#x000A;  ],&#x000A;  &quot;modules&quot;: [&#x000A;    {&#x000A;      &quot;name&quot;: &quot;gnome-dictionary&quot;,&#x000A;      &quot;sources&quot;: [&#x000A;        {&#x000A;          &quot;type&quot;: &quot;archive&quot;,&#x000A;          &quot;url&quot;: &quot;https://download.gnome.org/sources/gnome-dictionary/3.20/gnome-dictionary-3.20.0.tar.xz&quot;,&#x000A;          &quot;sha256&quot;: &quot;efb36377d46eff9291d3b8fec37baab2355f9dc8bc7edb791b6a625574716121&quot;&#x000A;        }&#x000A;      ]&#x000A;    }&#x000A;  ]&#x000A;}&#x000A;</code></pre>
+  <pre><code>{&#x000A;  &quot;app-id&quot;: &quot;org.gnome.Dictionary&quot;,&#x000A;  &quot;runtime&quot;: &quot;org.gnome.Platform&quot;,&#x000A;  &quot;runtime-version&quot;: &quot;3.22&quot;,&#x000A;  &quot;sdk&quot;: &quot;org.gnome.Sdk&quot;,&#x000A;  &quot;command&quot;: &quot;gnome-dictionary&quot;,&#x000A;  &quot;finish-args&quot;: [ &#x000A;     &quot;--socket=x11&quot;, &#x000A;     &quot;--share=network&quot;  &#x000A;  ],&#x000A;  &quot;modules&quot;: [&#x000A;    {&#x000A;      &quot;name&quot;: &quot;gnome-dictionary&quot;,&#x000A;      &quot;sources&quot;: [&#x000A;        {&#x000A;          &quot;type&quot;: &quot;archive&quot;,&#x000A;          &quot;url&quot;: &quot;https://download.gnome.org/sources/gnome-dictionary/3.22/gnome-dictionary-3.22.0.tar.xz&quot;,&#x000A;          &quot;sha256&quot;: &quot;efb36377d46eff9291d3b8fec37baab2355f9dc8bc7edb791b6a625574716121&quot;&#x000A;        }&#x000A;      ]&#x000A;    }&#x000A;  ]&#x000A;}&#x000A;</code></pre>
   
   <h3>Cleanup</h3>
   
@@ -1018,7 +1018,7 @@
   
   <p>It is now possible to update the installed version of the Dictionary application with the new version that was built and exported by flatpak-builder:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>flatpak --user update org.gnome.Dictionary&#x000A;<span class="unselectable">$ </span>flatpak --user update org.gnome.Dictionary.Locale</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak --user update org.gnome.Dictionary</pre>
   
   <p>To check that the application has been successfully updated, you can compare the sha256 commit of the installed app with the commit ID that was printed by flatpak-builder:</p>
   
@@ -1053,7 +1053,7 @@
   
   <p>These arguments translate into several properties in the application metadata file:</p>
   
-  <pre><code>[Application]&#x000A;name=org.gnome.Dictionary&#x000A;runtime=org.gnome.Platform/x86_64/3.20&#x000A;sdk=org.gnome.Sdk/x86_64/3.20&#x000A;command=gnome-dictionary&#x000A;&#x000A;[Context]&#x000A;shared=network;&#x000A;sockets=x11;&#x000A;</code></pre>
+  <pre><code>[Application]&#x000A;name=org.gnome.Dictionary&#x000A;runtime=org.gnome.Platform/x86_64/3.22&#x000A;sdk=org.gnome.Sdk/x86_64/3.22&#x000A;command=gnome-dictionary&#x000A;&#x000A;[Context]&#x000A;shared=network;&#x000A;sockets=x11;&#x000A;</code></pre>
   
   <p>Note that in this example access to the filesystem wasn&#39;t granted. This can be tested by installing the resulting application and running:</p>
   
