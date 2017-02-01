@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>
-      Getting Flatpak
+      Flatpak Command Line Tutorial
     </title>
     <meta content='text/html; charset=UTF8' http-equiv='content-type'>
-    <meta content='How to download and install Flatpak on your system to get started.' name='description'>
+    <meta content='How to use the command line to manage installed applications.' name='description'>
     <meta content='bundle,application,runtime,flatpak,xdg-app' name='keywords'>
     <meta content='width=device-width,initial-scale=1' name='viewport'>
     <link href='img/favicon-1713a929.png' rel='icon' type='image/png'>
@@ -71,58 +71,71 @@
     </nav>
   </body>
   <section class=""><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1">
-  <h1>Getting Flatpak</h1>
+  <h1>Using Flatpak from the command-line</h1>
   
-  <p>Flatpak is available for the most common Linux distributions. After installing it, it is necessary to log out and in again for Flatpak apps to appear in your desktop.</p>
+  <p>The easiest way to install and update Flatpak applications is using a dedicated software management app, like GNOME Software. Several distributions allow this, including Fedora, openSUSE and Arch. If this graphical solution isn&#39;t available, then it is still possible to install and manage Flatpak applications from the command line.</p>
   
-  <p>Once you&#39;ve installed Flatpak, you can <a href="apps.html">get some apps</a> or <a href="hello-world.html">create your own in 5 minutes</a>.</p>
+  <p>If you are using the command line, the <a href="apps.html">applications page</a> includes the commands that are needed to install each application. This guide includes additional commands that you can use to manage those applications once you have installed them.</p>
   
-  <h3>Arch</h3>
+  <h2>Managing applications</h2>
   
-  <p>A <code>flatpak</code> package is available in the official repositories. <code>flatpak-git</code> is also available in the AUR for the latest development snapshot.</p>
+  <h3>Listing installed applications</h3>
   
-  <h3>Debian</h3>
+  <p>To list all the Flatpak applications that you have installed, run:</p>
   
-  <p>A <code>flatpak</code> package is available in <a href="https://wiki.debian.org/DebianTesting">Debian Testing</a> and newer.</p>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak list</pre>
   
-  <p>For Debian Jessie, a <code>flatpak</code> package is available in the official <a href="https://backports.debian.org/Instructions/">backports repository</a>.</p>
+  <p>Application names are given in reverse DNS format - like a reversed web address - with three parts separated by dots. This is a unique identifier that is used throughout Flatpak.</p>
   
-  <h3>Fedora</h3>
+  <h3>Running applications</h3>
   
-  <p>A <code>flatpak</code> package is available for Fedora 23 and newer. To install, run the following:</p>
+  <p>Once a Flatpak application has been installed, it can be launched in the usual way from your desktop. Flatpak applications can also be run from the command line, though:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>sudo dnf install flatpak</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak run APPLICATION</pre>
   
-  <h3>Gentoo</h3>
+  <p><code>APPLICATION</code> should be replaced with the name of the application that you want to launched, in the standard reverse DNS format.</p>
   
-  <p>An unofficial overlay is available <a href="https://github.com/fosero/flatpak-overlay">here</a></p>
+  <h3>Removing applications</h3>
   
-  <h3>Mageia</h3>
+  <p>Uninstalling an application is a simple command very similar to the <code>run</code> command:</p>
   
-  <p>A <code>flatpak</code> package is available in Cauldron. To install, run the following as root:</p>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak uninstall APPLICATION</pre>
   
-  <p>If using <code>DNF</code></p>
+  <h3>Updating</h3>
   
-  <pre>&#x000A;<span class="unselectable"># </span>dnf install flatpak</pre>
+  <p>Updating all your installed applications with FLatpak is a single command:</p>
   
-  <p>If using <code>urpmi</code></p>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak update</pre>
   
-  <pre>&#x000A;<span class="unselectable"># </span>urpmi flatpak</pre>
+  <p>It is also possible to update an individual application by adding its name to the command:</p>
   
-  <h3>openSUSE</h3>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak update APPLICATION</pre>
   
-  <p>A <code>flatpak</code> package is available for <a href="https://en.opensuse.org/Portal:Tumbleweed">openSUSE Tumbleweed</a>. To install, run the following:</p>
+  <h2>Repositories</h2>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>sudo zypper install flatpak</pre>
+  <p>With Flatpak, repositories can include one or many applications. They can either be added manually or as part of installing an application. To list the Flatpak repositories that you have added, run:</p>
   
-  <h3>Ubuntu</h3>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-list</pre>
   
-  <p>For Ubuntu 16.04 and 16.10 a PPA is available. To install, run:</p>
+  <p>It is then possible to list all the applications in each repository using:</p>
   
-  <pre>&#x000A;<span class="unselectable">$ </span>sudo add-apt-repository ppa:alexlarsson/flatpak&#x000A;<span class="unselectable">$ </span>sudo apt update&#x000A;<span class="unselectable">$ </span>sudo apt install flatpak</pre>
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-ls --app REPOSITORY</pre>
   
-  <p>A <code>flatpak</code> package is available in <a href="https://wiki.ubuntu.com/YakketyYak">Ubuntu 16.10</a> and newer via universe, however this is
-  an older version, and its recommended that you use the one from the PPA.</p>
+  <p><code>REPOSITORY</code> should be replaced by the repository name given by <code>flatpak remote-list</code>. The <code>--app</code> option means that only applications will be listed. Without it, runtimes that are provided by the repository will also be listed.</p>
+  
+  <p>Finally, it is possible to remove a repository using:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-delete REPOSITORY</pre>
+  
+  <h2>Runtimes</h2>
+  
+  <p>Runtimes are collections of dependencies that are used by applications. They are provided by repositories, in much the same way as repositories of packages. When installing an application, Flatpak will automatically install any required runtimes if they are available. This does require that the repositories containing those runtimes are added first.</p>
+  
+  <p>In most cases, the GNOME SDK repository contains all the runtimes you might need. To add it, run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-add --if-not-exists gnome https://sdk.gnome.org/gnome.flatpakrepo</pre>
+  
+  <p><code>--if-not-exists</code> means that the repository will only be added if it isn&#39;t there already and <code>gnome</code> is the name for the repository.</p>
   </div></div></div></section>
   <section class='bg-black' id='footer'>
     <div class='container'>

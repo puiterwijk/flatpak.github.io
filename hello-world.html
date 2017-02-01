@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>
-      Getting Flatpak
+      Hello World
     </title>
     <meta content='text/html; charset=UTF8' http-equiv='content-type'>
-    <meta content='How to download and install Flatpak on your system to get started.' name='description'>
+    <meta content='Create a Flatpak application in five minutes.' name='description'>
     <meta content='bundle,application,runtime,flatpak,xdg-app' name='keywords'>
     <meta content='width=device-width,initial-scale=1' name='viewport'>
     <link href='img/favicon-1713a929.png' rel='icon' type='image/png'>
@@ -71,58 +71,76 @@
     </nav>
   </body>
   <section class=""><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1">
-  <h1>Getting Flatpak</h1>
+  <h1>Hello World</h1>
   
-  <p>Flatpak is available for the most common Linux distributions. After installing it, it is necessary to log out and in again for Flatpak apps to appear in your desktop.</p>
+  <p>Developers can quickly get started using the tutorial below. More detailed information is available in the <a href="http://docs.flatpak.org/">Flatpak developer documentation</a>.</p>
   
-  <p>Once you&#39;ve installed Flatpak, you can <a href="apps.html">get some apps</a> or <a href="hello-world.html">create your own in 5 minutes</a>.</p>
+  <h2>1. Install Flatpak</h2>
   
-  <h3>Arch</h3>
+  <p>First we need to install Flatpak itself. The instructions here are for Fedora or Ubuntu. Details for other distros can be found on the <a href="getting.html">getting Flatpak page</a>.</p>
   
-  <p>A <code>flatpak</code> package is available in the official repositories. <code>flatpak-git</code> is also available in the AUR for the latest development snapshot.</p>
-  
-  <h3>Debian</h3>
-  
-  <p>A <code>flatpak</code> package is available in <a href="https://wiki.debian.org/DebianTesting">Debian Testing</a> and newer.</p>
-  
-  <p>For Debian Jessie, a <code>flatpak</code> package is available in the official <a href="https://backports.debian.org/Instructions/">backports repository</a>.</p>
-  
-  <h3>Fedora</h3>
-  
-  <p>A <code>flatpak</code> package is available for Fedora 23 and newer. To install, run the following:</p>
+  <p>If you are using Fedora, run:</p>
   
   <pre>&#x000A;<span class="unselectable">$ </span>sudo dnf install flatpak</pre>
   
-  <h3>Gentoo</h3>
-  
-  <p>An unofficial overlay is available <a href="https://github.com/fosero/flatpak-overlay">here</a></p>
-  
-  <h3>Mageia</h3>
-  
-  <p>A <code>flatpak</code> package is available in Cauldron. To install, run the following as root:</p>
-  
-  <p>If using <code>DNF</code></p>
-  
-  <pre>&#x000A;<span class="unselectable"># </span>dnf install flatpak</pre>
-  
-  <p>If using <code>urpmi</code></p>
-  
-  <pre>&#x000A;<span class="unselectable"># </span>urpmi flatpak</pre>
-  
-  <h3>openSUSE</h3>
-  
-  <p>A <code>flatpak</code> package is available for <a href="https://en.opensuse.org/Portal:Tumbleweed">openSUSE Tumbleweed</a>. To install, run the following:</p>
-  
-  <pre>&#x000A;<span class="unselectable">$ </span>sudo zypper install flatpak</pre>
-  
-  <h3>Ubuntu</h3>
-  
-  <p>For Ubuntu 16.04 and 16.10 a PPA is available. To install, run:</p>
+  <p>On Ubuntu, Flatpak is available through a PPA. To install it, run:</p>
   
   <pre>&#x000A;<span class="unselectable">$ </span>sudo add-apt-repository ppa:alexlarsson/flatpak&#x000A;<span class="unselectable">$ </span>sudo apt update&#x000A;<span class="unselectable">$ </span>sudo apt install flatpak</pre>
   
-  <p>A <code>flatpak</code> package is available in <a href="https://wiki.ubuntu.com/YakketyYak">Ubuntu 16.10</a> and newer via universe, however this is
-  an older version, and its recommended that you use the one from the PPA.</p>
+  <h2>2. Install a runtime</h2>
+  
+  <p>Flatpak requires every app to specify a runtime that it uses for its dependencies. We&#39;ll use the GNOME 3.22 development platform runtime for this. To install the runtime, we first need to add the repository that provides it. Run:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak remote-add --from gnome https://sdk.gnome.org/gnome.flatpakrepo</pre>
+  
+  <p>And then install the runtime itself:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak install gnome org.gnome.Platform//3.22</pre>
+          
+  
+  <h2>3. Create your app</h2>
+  
+  <p>First we need to create the directory structure for the app:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>mkdir hello&#x000A;<span class="unselectable">$ </span>mkdir hello/files&#x000A;<span class="unselectable">$ </span>mkdir hello/files/bin&#x000A;<span class="unselectable">$ </span>mkdir hello/export</pre>
+  
+  <p>Now let&#39;s add something simple: create a file in <code>hello/files/bin/</code> called <code>hello.sh</code>. Then add the following to the file and save it:</p>
+  
+  <pre>&#x000A;#!/bin/sh&#x000A;echo "Hello world, from a sandbox"</pre>
+  
+  <p>Now we need to provide some information about the application. In Flatpak this is specified in a key-value file called <code>metadata</code>, which goes in the <code>hello</code> directory.</p>
+  
+  <p>For a simple app this doesn&#39;t contain much, so we can create it manually:</p>
+  
+  <pre>&#x000A;[Application]&#x000A;name=org.test.Hello&#x000A;runtime=org.gnome.Platform/x86_64/3.22&#x000A;command=hello.sh</pre>
+  
+  <p>This specifies the application identifier (<code>org.test.Hello</code>) as well as the runtime the application uses and the command to start the app with.</p>
+  
+  <h2>4. Put the app in a repository</h2>
+  
+  <p>Congratulations, you&#39;ve made an app! To be able to install it, you need to put it in a repository. This is done with the build-export command:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak build-export repo hello</pre>
+  
+  <p>This will initialize a local repository in the &quot;repo&quot; directory and export the app to it.</p>
+  
+  <h2>5. Install</h2>
+  
+  <p>Now we&#39;re ready to add the repository that was just created and install the app. This is done with two commands:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak --user remote-add --no-gpg-verify tutorial-repo repo&#x000A;<span class="unselectable">$ </span>flatpak --user install tutorial-repo org.test.Hello</pre>
+  
+  <p>This will install the remote and the app in the user&#39;s home directory due to the <code>--user</code> argument. This is useful for test builds and other local things.</p>
+  
+  <h2>6. Run</h2>
+  
+  <p>All that&#39;s left is to run the app. This can be done with:</p>
+  
+  <pre>&#x000A;<span class="unselectable">$ </span>flatpak run org.test.Hello</pre>
+  
+  <p>This will print <code>Hello world, from a sandbox</code>.</p>
+  
+  <p>Ta da! That&#39;s it: you&#39;ve successfully built, installed and run your first Flatpak. Many of these steps are simplified by Flatpak&#39;s built in tools. For information on how to use them, as well as how to build and distribute more complex apps see the <a href="http://docs.flatpak.org/">developer documentation</a>.</p>
   </div></div></div></section>
   <section class='bg-black' id='footer'>
     <div class='container'>
