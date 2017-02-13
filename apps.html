@@ -133,15 +133,25 @@
                      <div class='col-xs-6 col-sm-2 right'>
                      <a class='btn btn-default' href='https://dl.tingping.se/flatpak/transmission-remote-gtk.flatpakref'>Download</a>
                      </div>
-                <!-- = app_download "Pitivi", "#" -->
+                <div class='col-xs-6 col-sm-4'>Pitivi</div>
+                     <div class='col-xs-6 col-sm-2 right'>
+                     <a class='btn btn-default' href='http://flatpak.pitivi.org/pitivi.flatpakref'>Download</a>
+                     </div>
                 <div class='col-xs-6 col-sm-4'>GNOME MPV</div>
                      <div class='col-xs-6 col-sm-2 right'>
                      <a class='btn btn-default' href='https://dl.tingping.se/flatpak/gnome-mpv.flatpakref'>Download</a>
                      </div>
-                <!-- = app_download "Corebird", "#" -->
+                <div class='col-xs-6 col-sm-4'>Corebird</div>
+                     <div class='col-xs-6 col-sm-2 right'>
+                     <a class='btn btn-default' href='https://github.com/baedert/corebird-flatpak/blob/master/org.baedert.corebird.flatpakref'>Download</a>
+                     </div>
                 <div class='col-xs-6 col-sm-4'>Picard</div>
                      <div class='col-xs-6 col-sm-2 right'>
                      <a class='btn btn-default' href='https://www.daitauha.fr/static/flatpak/picard.flatpakref'>Download</a>
+                     </div>
+                <div class='col-xs-6 col-sm-4'>FeedReader</div>
+                     <div class='col-xs-6 col-sm-2 right'>
+                     <a class='btn btn-default' href='http://feedreader.xarbit.net/feedreader-repo/feedreader.flatpakref'>Download</a>
                      </div>
               </div>
               <!--
@@ -338,7 +348,31 @@
               <a href="https://picard.musicbrainz.org/">MusicBrainz's Picard</a>
               releases are being produced by
               <a href="https://mathieu.daitauha.fr">Mathieu Bridon</a>
-              <pre><span class="unselectable">$ </span>flatpak install --from https://www.daitauha.fr/static/flatpak/picard.flatpakref&#x000A;<span class="unselectable">$ </span>flatpak run org.musicbrainz.Picard</pre>
+              <pre><span class="unselectable">$ </span>flatpak install --from https://www.daitauha.fr/static/flatpak/picard.flatpakref&#x000A;<span class="unselectable">$ </span>flatpak run org.musicbrainz.Picard&#x000A;</pre>
+              <a name='pitivi'></a>
+              <h4>Pitivi</h4>
+              Pitivi master (development version) can be installed
+              <pre><span class="unselectable">$ </span>flatpak install --user http://flatpak.pitivi.org/pitivi-master.flatpakref&#x000A;</pre>
+              Pitivi release can be installed
+              <pre><span class="unselectable">$ </span>flatpak install --user http://flatpak.pitivi.org/pitivi.flatpakref&#x000A;&#x000A;</pre>
+              You can now launch Pitivi from your applications menu as any other installed application. You can also re run the installer which launches Pitivi after updating to the latest version. To see if warning or error messages are printed in the console, run:
+              <pre><span class="unselectable">$ </span>flatpak run org.pitivi.Pitivi//stable&#x000A;</pre>
+              If for some reason you need to use an older Pitivi version, run:
+              <pre><span class="unselectable">$ </span>flatpak run org.pitivi.Pitivi//0.96&#x000A;</pre>
+              <a name='corebird'></a>
+              <h4>Corebird</h4>
+              Experimental builds of the
+              <a href="http://corebird.baedert.org/">Corebird</a>
+              releases are being produced by
+              <a href="http://baedert.org/">Timm Bäder</a>
+              <pre><span class="unselectable">$ </span>flatpak install --from https://github.com/baedert/corebird-flatpak/blob/master/org.baedert.corebird.flatpakref&#x000A;<span class="unselectable">$ </span>flatpak run org.baedert.corebird&#x000A;&#x000A;</pre>
+              <a name='feedreader'></a>
+              <h4>FeedReader</h4>
+              <p>
+                Builds of the latest
+                <a href="https://jangernert.github.io/FeedReader/">FeedReader</a>
+              </p>
+              <pre><span class="unselectable">$ </span>flatpak install --from http://feedreader.xarbit.net/feedreader-repo/feedreader.flatpakref&#x000A;<span class="unselectable">$ </span>flatpak run org.gnome.FeedReader</pre>
             </div>
           </div>
         </div>
